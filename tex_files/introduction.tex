@@ -1,14 +1,25 @@
 \subsection{Background}
+\subsubsection{k Nearest Neighbor graphs}
+K nearest neighbor graph for a set of $n$ objects $P$ in a metric space (e.g., for a set of points in the plane with Euclidean distance) is a directed graph with $P$ being its vertex set and with a directed edge from $p$ to $q$ whenever $q$ is a nearest neighbor of $p$ (i.e., the distance from $p$ to $q$ is no larger than from $q$ to any other object from $P$).
+They can show a measure of the correlation between the degree of a node and that of its neighbors.
+In many systems strong correlations are observed, and one distinguishes networks into assortative and disassortative.
+A network is assortative if large (small) degree nodes tend to be linked with large (small) degree nodes.
+Typical examples of assortative networks are social networks.
+A network is disassortative if large (small) degree nodes tend to be linked with small (large) degree nodes.
+Biological and technological networks (like the Internet) are examples of disassortative networks.
+On a directed graph one distinguishes between indegree (number of edges incoming to a node) and outdegree (number of edges outgoing from a node), so one can also test different types of correlations.
+
+
 \subsubsection{Pearson Product-Moment correlation coefficient}
 
 The Pearson product-moment correlation coefficient (or Pearson correlation coefficient, for short) is a measure of the strength of a linear association between two variables and is denoted by $r$.
 Basically Pearson correlation coefficient, r, indicates how far away all these data points are to this line of best fit (how well the data points fit this new model/line of best fit).
-Pearson correlation coefficient, r, represented with the following formula for populations:
+Pearson correlation coefficient, $\rho$, represented with the following formula for populations:
 
 $$ \rho_{X,Y} = \frac{cov(X,Y)}{\sigma_x \sigma_y}$$
 
 Where $\sigma$ is a standard deviation of population and $cov$ is its covariance.
-It can be also represented using the following formula for samples of size $n$:
+It can be also represented as $r$, using the following formula for samples of size $n$:
 
 $$r = \frac{\sum_{i=1}^{n} (X_i - \bar{X}) (Y_i - \bar{Y}) }
 { \sqrt{\sum_{i=1}^{n} (X_i - \bar{X})^2} \sqrt{\sum_{i=1}^{n} (X_i - \bar{X})^2} }$$
@@ -18,9 +29,10 @@ A value of 0 indicates that there is no association between the two variables.
 A value greater than 0 indicates a positive association; meaning, as the value of one variable increases, so does the value of the other variable.
 A value less than 0 indicates a negative association; meaning, as the value of one variable increases, the value of the other variable decreases.
 
+\clearpage
 Exemplar Pearson correlation coefficients with graphical visualization are shown in Figure~\ref{fig:pearson_graph}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
   \captionsetup{justification=centering}
     \includegraphics[width=0.8\textwidth]{images/pearson_graphs.png}
@@ -28,12 +40,11 @@ Exemplar Pearson correlation coefficients with graphical visualization are shown
   \label{fig:pearson_graph}
 \end{figure}
 
-\clearpage
 One more thing to note regarding Pearson correlation coefficient is that it does not represent the slope of the line of best fit.
 Therefore, if you get a Pearson correlation coefficient of +1 this does not mean that for every unit increase in one variable there is a unit increase in another.
 It simply means that there is no variation between the data points and the line of best fit. This is illustrated below:
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
   \captionsetup{width=24pc, justification=centering}
     \includegraphics[width=0.55\textwidth]{images/pearson_graphs_slope.png}

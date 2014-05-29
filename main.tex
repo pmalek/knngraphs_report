@@ -24,6 +24,11 @@
 \usepackage{wrapfig}
 \usepackage[table]{xcolor} % for table colors (gray)
 \usepackage{caption}
+% for printing current date and time on compile time
+\usepackage{fancyhdr}
+\usepackage[yyyymmdd,hhmmss]{datetime}
+\pagestyle{fancy}
+
 %
 % should not USE  ? 
 %\setlength{\parindent}{10mm} % Do not indent the 1st line of a paragraph.
@@ -46,13 +51,20 @@
 %\addtolength{\textwidth}{14mm}     
 
 % This creates the header.
-\makeatletter
-\renewcommand{\@oddhead}
-{\fontsize{10}{12}\selectfont \hfill \mahtitle \hfill }
-\makeatother
+%\makeatletter
+%\renewcommand{\@oddhead}
+%{\fontsize{10}{12}\selectfont \hfill \mahtitle \hfill }
+%\makeatother
 
 \renewcommand{\Authfont}{\Large\normalfont}
 \renewcommand{\Affilfont}{\large\itshape}
+
+
+% This creates the header.
+\setlength{\headheight}{14pt}
+\fancyhf[HL]{Built: \today\ at \currenttime}
+\fancyhf[HC]{\mahtitle}
+\fancyhf[HR]{}
 
 \begin{document}
 
@@ -66,7 +78,8 @@
         Faculty of Sciences\\
         malekpatryk@gmail.com
       }
-\date{}%\date{\today}         % Do not print the date on the final paper!
+\date{}
+%\date{\today}         % Do not print the date on the final paper!
 \maketitle
 % prevents page numbering on this page
 \thispagestyle{empty}
