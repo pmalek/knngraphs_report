@@ -1,0 +1,27 @@
+\newenvironment{filecode}[1][]
+  {\minipage{\linewidth}% \begin{filecode}[#1]
+   \lstset{basicstyle=\ttfamily\footnotesize,#1}}
+  {\endminipage}% \end{filecode}
+
+\newenvironment{note}[1]
+  {
+  \vspace{1em}\hspace{1.5em}
+  \hbox{%
+  \vrule\hspace{.5em}\parbox{.9\textwidth}%
+  {
+  \textbf{Note:}
+  #1
+  }}}
+  {\vspace{1em}}
+
+\renewenvironment{abstract}
+{\itshape \small
+  \begin{center}
+  \bfseries \abstractname\vspace{-.5em}\vspace{0pt}
+  \end{center}
+  \list{}{
+    \setlength{\leftmargin}{1.5cm}%
+    \setlength{\rightmargin}{\leftmargin}%
+  }%
+  \item\relax}
+{\endlist}

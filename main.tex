@@ -1,0 +1,127 @@
+%	To produce Postscript and PDF:
+%    latex template; latex template; 
+%    dvips -o template.ps template; ps2pdf template.ps
+\documentclass[a4paper,11pt]{article}
+\usepackage{mathptmx}
+%\usepackage{newtxmath}   not available ? 
+%\usepackage{newtxtext} []  not available ?
+\usepackage[margin=28mm]{geometry}% <-------- CHANGE HERE for the global margins
+\usepackage[T1]{fontenc}    % Check that ÖÄÅöäå come out ok!
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{url} 
+\usepackage{parskip}
+\usepackage{listings} % for code snippets
+\usepackage{authblk}
+\usepackage[nobottomtitles]{titlesec}
+\linespread{1.1}
+\usepackage[bottom]{footmisc}
+\usepackage[title]{appendix}
+\usepackage{perpage} %the perpage package
+\MakePerPage{footnote} %the perpage package command
+\usepackage{varioref} %for \vref
+\usepackage{enumitem}
+\usepackage{wrapfig}
+\usepackage[table]{xcolor} % for table colors (gray)
+\usepackage{caption}
+%
+% should not USE  ? 
+%\setlength{\parindent}{10mm} % Do not indent the 1st line of a paragraph.
+%\setlength{\parskip}{20mm}   % Add space between paragraphs.
+
+% defined new environments
+\input{./tex_files/environments.tex}
+
+% defines my code style
+\input{./tex_files/codestyle.tex} 
+
+% title variable definition
+\newcommand{\mahtitle}{Assortativity of k-NN graphs}
+
+% Save some paper by stuffing more text on each page:
+% A4: 210mm x 297mm, approximately 35 mm margins on every side.
+\addtolength{\topmargin}{-2mm}    
+\addtolength{\textheight}{2mm}    
+%\addtolength{\oddsidemargin}{-10mm} 
+%\addtolength{\textwidth}{14mm}     
+
+% This creates the header.
+\makeatletter
+\renewcommand{\@oddhead}
+{\fontsize{10}{12}\selectfont \hfill \mahtitle \hfill }
+\makeatother
+
+\renewcommand{\Authfont}{\Large\normalfont}
+\renewcommand{\Affilfont}{\large\itshape}
+
+\begin{document}
+
+%============================================================
+% title
+\label{Title} 
+\title{\vspace{1pc} \mahtitle \vspace{4pc}}
+\author{Patryk Małek \vspace{-0.7pc}}
+\affil{
+        University of Novi Sad\\
+        Faculty of Sciences\\
+        malekpatryk@gmail.com
+      }
+\date{}%\date{\today}         % Do not print the date on the final paper!
+\maketitle
+% prevents page numbering on this page
+\thispagestyle{empty}
+
+%============================================================
+
+\vspace{6pc}
+\centerline{
+\includegraphics[width=0.35\textwidth,height=0.35\textheight,keepaspectratio]{NoviSadLogoGray.jpg}
+}
+\vspace{8pc}
+
+\clearpage
+\begin{abstract}
+\label{Abstract}
+\input{./tex_files/abstract}
+\end{abstract}
+
+%============================================================
+
+%\tableofcontents
+
+%============================================================
+
+\pagebreak
+\section{Introduction} 
+\input{./tex_files/introduction.tex}
+
+%============================================================
+
+\clearpage
+\section{Summary} 
+\input{./tex_files/summary.tex}
+
+%============================================================
+
+\clearpage
+\label{Bibliography} 
+%
+\bibliographystyle{siam}
+\footnotesize{ \bibliography{bibliography} }
+% In that case, remember to run bibtex:
+% latex template; bibtex template; latex template; latex template; 
+
+%============================================================
+
+%\clearpage
+%\begin{appendices}
+%
+%\section{Extending GLSurfaceView class to capture user input.}
+%\label{App:Appendix_A}
+%\begin{filecode}[label=lst:glsurfaceview_override]
+%\lstinputlisting{./code/opengles_glsurfaceview_override.java}
+%\end{filecode}
+%
+%\end{appendices}
+
+\end{document}
