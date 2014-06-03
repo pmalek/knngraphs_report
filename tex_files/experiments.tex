@@ -1,0 +1,11 @@
+\subsection{Used technologies}
+To implement the solution for this problem Java programming language has been used together with Jung library~\cite{jung} to produce kNN graphs.
+
+\subsection{Implemented solution}
+Implemented solution is a \emph{jar} file with following usage (replace \emph{VERSION} with appropriate version of the \emph{jar} file in possession).
+
+\shellcmd{java -jar knngraphs-VERSION.jar file1.csv file2.csv}
+
+One can state more files (datasets) as shown above which will be used to create kNN graphs, show them and calculate Pearson coefficient vs K graph for each file(dataset).
+After launch, user will be asked until what parameter $K$ he wants the program to calculate the graphs (it will start its calcaulations from 1).
+After that one can choose whether to show kNN graph for each K ( Warning: it may be RAM and CPU heavy to show graphs for many $K$s) and whether to save Pearson coefficient vs $K$ graph to \emph{.svg} file in the working directory.

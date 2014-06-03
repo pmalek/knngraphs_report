@@ -1,5 +1,5 @@
 \subsection{Background}
-\subsubsection{k Nearest Neighbor graphs}
+\subsubsection{K Nearest Neighbor graphs}
 K nearest neighbor graph for a set of $n$ objects $P$ in a metric space (e.g., for a set of points in the plane with Euclidean distance) is a directed graph with $P$ being its vertex set and with a directed edge from $p$ to $q$ whenever $q$ is a nearest neighbor of $p$ (i.e., the distance from $p$ to $q$ is no larger than from $q$ to any other object from $P$).
 They can show a measure of the correlation between the degree of a node and that of its neighbors.
 In many systems strong correlations are observed, and one distinguishes networks into assortative and disassortative.
@@ -9,11 +9,10 @@ A network is disassortative if large (small) degree nodes tend to be linked with
 Biological and technological networks (like the Internet) are examples of disassortative networks.
 On a directed graph one distinguishes between indegree (number of edges incoming to a node) and outdegree (number of edges outgoing from a node), so one can also test different types of correlations.
 
-
 \subsubsection{Pearson Product-Moment correlation coefficient}
 
-The Pearson product-moment correlation coefficient (or Pearson correlation coefficient, for short) is a measure of the strength of a linear association between two variables and is denoted by $r$.
-Basically Pearson correlation coefficient, r, indicates how far away all these data points are to this line of best fit (how well the data points fit this new model/line of best fit).
+The Pearson product-moment correlation coefficient (or Pearson correlation coefficient, for short) is a measure of strength of linear association between two variables and is denoted by $r$ for samples and $\rho$ for populations.
+Basically, it indicates how far away all the data points from the dataset are located to the line of best fit (how well the data points fit the new model/line of best fit).
 Pearson correlation coefficient, $\rho$, represented with the following formula for populations:
 
 $$ \rho_{X,Y} = \frac{cov(X,Y)}{\sigma_x \sigma_y}$$
@@ -42,7 +41,7 @@ Exemplar Pearson correlation coefficients with graphical representation (and lin
 
 One more thing to note regarding Pearson correlation coefficient is that it does not represent the slope of the line of best fit.
 Therefore, if you get a Pearson correlation coefficient of +1 this does not mean that for every unit increase in one variable there is a unit increase in another.
-It simply means that there is no variation between the data points and the line of best fit. This is illustrated below:
+It simply means that there is no variation between the data points and the line of best fit what is illustrated in Figure~\ref{fig:pearson_graph_slope}:
 
 \begin{figure}[h!]
   \centering
@@ -51,3 +50,7 @@ It simply means that there is no variation between the data points and the line 
   \caption{Graph showing independence of $r$ and slope of the line of best fit.}
   \label{fig:pearson_graph_slope}
 \end{figure}
+
+\subsection{Problem definition}
+The problem is to define whether there exists relation between parameter $k$ of kNN graph, that is its out-degree (number of outbound connections of each node in the graph) and Pearson correlation coefficient in high dimensional datasets.
+
