@@ -1,15 +1,10 @@
-The basic idea of this paper is to investigate assortativity of k-NN graphs constructed from real-world high-dimensional datasets.
-The k-NN graph is a graph in which two instances of the dataset P and Q are connected by a directed link if the distance between P and Q is among the k- th smallest distances from P to other instances.
-In the case of highly dimensional data k-NN graphs contain so called hubs – instances whose in-degree (the number of in-coming links attached to a node) is extremely high.
-A large number of real-world network are correlated in the sense that the probability that a node of degree d is connected to another node of degree $d'$ depends on $d$.
-The aim of the study is to investigate properties of IDNN function for different k-NN graphs, where $IDNN(d)$ stands for the average in-degree of the nearest neighbors of k-NN nodes with in-degree $d$.
+This paper investigates assortativity of k-NN graphs constructed from real-world high-dimensional datasets.
+After introducing the notion of k-NN graphs general problem definition is given regarding relation of $k$ parameter and graph's assortativity coefiicient (also called Pearson correlation coefficient) in high dimensional datasets.
+Highly dimensional datasets tend to contain hubs – instances whose in-degree (the number of incoming links attached to a node) is extremely high.
+Large number of real-world network are correlated in the sense that the probability that a node of degree $d$ is connected to another node of degree $d'$ depends on $d$.
+This paper investigates properties of IDNN function for different k-NN graphs, where $IDNN(d)$ stands for the average in-degree of the nearest neighbors of k-NN nodes with in-degree $d$.
 If there are no degree correlations then $IDNN(d)$ is independent of d, i.e. nodes connect to each other with the expected random probabilities.
-If $IDNN(d)$ is an increasing function of d then the graph is assortative, i.e. hubs show a tendency to link to each other.
-On the other hand if $IDNN(d)$ is a decreasing function of d then hubs tend to avoid linking between themselves (dissasortative mixing).
+If $IDNN(d)$ is an increasing function of d then the graph is assortative, i.e. hubs show a tendency to link to each other and inversely in the opposite situation.
 Degree correlations can be quantified by the slope of $IDNN(d)$ or by the Pearson correlation coefficient of degree between pairs of linked nodes (so called assortativity coefficient).
-
-The project is planning to answer the following questions:
-\begin{itemize}
-\item Are k-NN graphs representing real-world, high dimensional datasets assortative, disassortative or show no degree correlations?
-\item Is there any relation between degree correlations and k for different distance functions? In other words for different distance functions and different values of k what are the values of assortativity coefficient/the slope of IDNN function.
-\end{itemize}
+In this paper analysis of exemplar high-dimensional real-world datasets is given, basing on analyzing tool implemented for project's needs.
+The discovered rules whether k-NN graphs representing real-world data are assortative, disassortative or show no degree correlations are given in the results section.

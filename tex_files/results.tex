@@ -1,36 +1,72 @@
 Using the datasets from University of California Irvine Machine Learning Repository~\cite{uci_datasets}:
 
 \begin{itemize}
-\item White wine quality dataset~\cite{dataset_wine}, containing attributes and value like: fixed acidity,volatile acidity, citric acid and residual sugar,
-\item Bike sharing dataset~\cite{dataset_bike_rental}, containing hourly and daily count of rental bikes between years 2011 and 2012 in Capital bikeshare system with the corresponding weather and seasonal information,
-\item Steel plates faults dataset~\cite{dataset_steel_plates_faults}, describing faults of steel plates like, e.g.: scratches, depth of the scratch, bumps or height of bump.
+\item Cardiac arrythmia dataset~\cite{dataset_cardiac_arythmia}, dataset with 452 instances and a big number of attributes - 279, representing attributes of people having cardiac arrythmia and their organs' states,
+\item Handwritten numerals dataset~\cite{dataset_handwritten_numerals}, this dataset consists of features of handwritten numerals ($0$ - $9$) extracted from a collection of Dutch utility maps. 200 patterns per class (for a total of 2,000 patterns) with 64 attributes have been digitized in  binary images and represented in terms of few feature sets that are defined in referenced \emph{arff} file~\cite{dataset_handwritten_numerals},
+\item Steel plates faults dataset~\cite{dataset_steel_plates_faults}, describing faults of steel plates like, e.g.: scratches, depth of the scratch, bumps or height of bump. This dataset totals to 1941 instances with 33 attributes each.
 \end{itemize}
 
-While using the implemented solution with aforementioned datasets, parameter $k = 100$ has been chosen to gather the results.
-Following graphs have been obtained:
+While using the implemented solution with aforementioned datasets, parameter $k = 30$ has been chosen to calculate the results.
+
+%------------------------------------------
+\subsection{Cardiac arrythmia dataset}
+\label{subsec:cardiac}
+In cardiac arrythmia dataset one can observe assortativity coefficient stabilizing at around $0.31$ indicating assortative mixing.
+Between $k$ 1 and 2 we can observe change in assortativity from disassortative to assortative.
+
+Skewness of in-degrees is oscilating around level of $1.4 - 1.5$.
+Its level indicates hubs phenomena present in this dataset.
 
 \begin{figure}[h!]
   \centering
   \captionsetup{justification=centering}
-    \includegraphics[width=1.05\textwidth]{images/k100_wine1000.png}
-  \caption{Graph of Pearson correlation coefficient and its coefficient of variance against $K$ parameter for wine quality dataset.}
-  \label{fig:graph_wine}
+    \includegraphics[width=0.95\textwidth]{images/arrythmia_pearson.pdf}
+  \caption{Graph of Pearson correlation coefficient, its coefficient of variation and skewness of in-degree of nodes against $K$ parameter for cardiac arrythmia dataset.}
+  \label{fig:graph_arrythmia_pearson}
 \end{figure}
 
+
+%------------------------------------------
+\subsection{Handwritten numerals dataset}
+Handwritten numerals dataset exhibits lower level of stable assortativity index level, at around $0.27$.
+In this dataset we can see smaller gap between Pearson correlation coefficient and both skewness and coefficient of variation.
+
+Similarily to cardiac arrythmia dataset in Section~\ref{subsec:cardiac} we can observe a change of assortativity between $k$ 1 and 2 from disassortative to assortative.
+
+Positive skewness of in-degrees proves presence of hubs in kNN graph to be built upon this dataset.
 
 \begin{figure}[h!]
   \centering
   \captionsetup{justification=centering}
-    \includegraphics[width=1.05\textwidth]{images/k100_hour1000.png}
-  \caption{Graph of Pearson correlation coefficient and its coefficient of variance against $K$ parameter for bike rental dataset.}
-  \label{fig:graph_bike_rental}
+    \includegraphics[width=0.95\textwidth]{images/mfeat_pearson.pdf}
+  \caption{Graph of Pearson correlation coefficient, its coefficient of variation and skewness of in-degree of nodes against $K$ parameter for handwritten numerals dataset.}
+  \label{fig:graph_mfeat_pearson}
 \end{figure}
 
+
+\clearpage
+%------------------------------------------
+\subsection{Steel plate faults dataset}
+Steel plate faults dataset exhibits quite different parameters than 2 previous ones.
+Its assortativity index stabilizes at around $0.31$ as in previous examples yet covariance of variation of nodes in-degrees descends below level of $0.3$ overlapping with assortativity index.
+
+Skewness of nodes' in-degrees descends to negative values up until $-1.2$ for $k = 30$ indicating abence of hubness phenomena.
 
 \begin{figure}[h!]
   \centering
   \captionsetup{justification=centering}
-    \includegraphics[width=1.05\textwidth]{images/k100_faults.png}
-  \caption{Graph of Pearson correlation coefficient and its coefficient of variance against $K$ parameter for steel plates faults dataset.}
-  \label{fig:graph_faults}
+    \includegraphics[width=0.95\textwidth]{images/faults_pearson.pdf}
+  \caption{Graph of Pearson correlation coefficient, its coefficient of variation and skewness of in-degree of nodes against $K$ parameter for steel plates faults dataset.}
+  \label{fig:graph_faults_pearson}
 \end{figure}
+
+
+%------------------------------------------
+\subsection{General conclusions}
+General conclusion taken from aforementioned 3 datasets are as follows:
+\begin{itemize}
+\item k-NN graphs tend to be dissasortative or show no (dis)assortative mixing for small k ($k = 1$),
+\item k-NN graphs tend to be assortative for large $k$,
+\item assortativity for large $k$s occurs regardless of hubness phenomena ( e.g. both cardiac arrythmia dataset steel plates faults dataset positively assortative with and without hubs respectively) 
+\end{itemize}
+

@@ -1,0 +1,39 @@
+\subsection{Used technologies}
+%------------------------------------------
+\subsubsection{JUNG library}
+For creation and representation of graphs and coefficients calculations JUNG library~\cite{jung} has been used.
+JUNG(Java Universal Network/Graph Framework) is a software library that provides a common and extendible language for modeling, analysis, and visualization of data that can be represented as a graph or network.
+
+JUNG's \emph{DirectedSparseGraph} has been used as a class being the container for datasets' data.
+Datasets' instances has been wrapped in custom \emph{Node} class, having a list of floating point values which were then used for distance calculations.
+
+
+%------------------------------------------
+\subsubsection{Distance algorithm}
+For distance algorithm, indicating distance between \emph{Node}s, Euclidean distance algorithm has been implemented.
+All values from \emph{Node}'s values list has been squared, summed and then square root of tham sum has been calculated.
+The difference between this values of nodes has been used to determine distances between \emph{Node}s.
+
+
+%------------------------------------------
+\subsubsection{Pearson correlation coefficient}
+For Pearson correlation coefficient calcalation a class from Apache Common Math library~\cite{apache_common_math} -\emph{org.apache.commons.math3.stat.correlation.PearsonsCorrelation} - has been used.
+
+In this method for each link in the graph we take in-degrees from both of its ends - source node's in-degree and  destination node's in-degree - and then save it in 2 arrays.
+After the whole graph has been processed those arrays are then fed to \emph{PearsonsCorrelation} class and the coefficient is calculated with \emph{correlation} method.
+
+\begin{filecode}[label=lst:pearsonCorrelation,caption=Method used for Pearson correlation coefficient calculation.]
+  \lstinputlisting{./code/pearsonCorrelation.java}
+\end{filecode}
+
+%------------------------------------------
+\subsection{Implemented solution}
+Implemented solution is a \emph{jar} file with following usage (replace \emph{VERSION} with appropriate version of the \emph{jar} file in possession).
+
+\shellcmd{java -jar knngraphs-VERSION.jar -k K file1.csv [file2.csv ...]}
+
+One can state one or more files (datasets) as shown above which will be used to create kNN graphs, show them and calculate Pearson coefficient vs K graph for each file(dataset).
+After launch, user will be asked until what parameter $K$ he wants the program to calculate the graphs (it will start its calcaulations from 1) if it has not been passes in as command line parameter.
+After that one can choose whether to show kNN graph for each K ( Warning: it may be RAM and CPU heavy to show graphs for many $K$s) and whether to save Pearson coefficient vs $K$ graph to \emph{.svg} file in the working directory.
+
+Implemented solution's source code has been push onto github repository~\footnote{Patryk Małek, kNN graphs, (2014), GitHub repository,~\url{https://github.com/pmalek/knngraphs}}.
