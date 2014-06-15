@@ -61,6 +61,17 @@ Skewness of nodes' in-degrees descends to negative values up until $-1.2$ for $k
 \end{figure}
 
 
+In Figure~\ref{fig:graph_faults_nodes} one can observe tendency of nodes to connect to similar ones.
+Red nodes constitute upper 25 percentile of the sample (calculated by the sume of node's values).
+
+\begin{figure}[h!]
+  \centering
+  \captionsetup{justification=centering}
+    \includegraphics[width=0.95\textwidth]{images/faults_graph.png}
+  \caption{K-NN graph representation of steel plates faults dataset with red nodes being the upper 25 perentile of dataset. This graph is showing medium positive assortativity coefficient of $0.30243338685364907$ which exhibits in nodes being connected to similar ones.}
+  \label{fig:graph_faults_nodes}
+\end{figure}
+
 %------------------------------------------
 \subsection{General conclusions}
 General conclusion taken from aforementioned 3 datasets are as follows:

@@ -1,10 +1,11 @@
 This paper investigates assortativity of k-NN graphs constructed from real-world high-dimensional datasets.
-After introducing the notion of k-NN graphs general problem definition is given regarding relation of $k$ parameter and graph's assortativity coefiicient (also called Pearson correlation coefficient) in high dimensional datasets.
+Assortativity is the tendency of nodes to connect to other nodes that are similar to them.
+After introducing the notion of k-NN graphs general problem definition is given regarding relation of $k$ parameter and graph's assortativity coefficient (also called Pearson correlation coefficient) in high dimensional datasets.
 Highly dimensional datasets tend to contain hubs – instances whose in-degree (the number of incoming links attached to a node) is extremely high.
 Large number of real-world network are correlated in the sense that the probability that a node of degree $d$ is connected to another node of degree $d'$ depends on $d$.
-This paper investigates properties of IDNN function for different k-NN graphs, where $IDNN(d)$ stands for the average in-degree of the nearest neighbors of k-NN nodes with in-degree $d$.
-If there are no degree correlations then $IDNN(d)$ is independent of d, i.e. nodes connect to each other with the expected random probabilities.
-If $IDNN(d)$ is an increasing function of d then the graph is assortative, i.e. hubs show a tendency to link to each other and inversely in the opposite situation.
-Degree correlations can be quantified by the slope of $IDNN(d)$ or by the Pearson correlation coefficient of degree between pairs of linked nodes (so called assortativity coefficient).
+This paper investigates correlation of $k$ parameter of k-NN graphs to their assortativity index.
+With positive assortative index $(0, 1>$, nodes tend to connect to other nodes that are similar.
+With negative assortative index $<-1, 0$, nodes tend to connect to nodes that are different (have different degrees).
+Values close to $0$ indicate no tendency of nodes to connect to any other particular nodes (random connections).
 In this paper analysis of exemplar high-dimensional real-world datasets is given, basing on analyzing tool implemented for project's needs.
 The discovered rules whether k-NN graphs representing real-world data are assortative, disassortative or show no degree correlations are given in the results section.
