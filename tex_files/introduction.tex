@@ -31,7 +31,6 @@ A value of 0 indicates that there is no association between the two variables.
 A value greater than 0 indicates a positive association; meaning, as the value of one variable increases, so does the value of the other variable.
 A value less than 0 indicates a negative association; meaning, as the value of one variable increases, the value of the other variable decreases.
 
-\clearpage
 Exemplar Pearson correlation coefficients with graphical representation (and line of best fit) are shown in Figure~\ref{fig:pearson_graph}.
 
 \begin{figure}[h!]
@@ -60,7 +59,32 @@ With positive assortative coefficient $(0, 1>$, nodes tend to connect to other n
 With negative assortative coefficient $<-1, 0$, nodes tend to connect to nodes that are different (have different degrees).
 Values close to $0$ indicate no tendency of nodes to connect to any other particular nodes (random connections).
 
+\subsubsection{Coefficient of variation}
+Coefficient of variation is a ratio of standard deviation and the mean.
+It shows the variation in the population (sample) independently on its mean, therefore allowing the comparison of variation on populations (samples) with greatly different mean.
+In this work it is used for showing the variation of in-degree of nodes in the samples (datasets) under research.
+
+\subsubsection{Skewness}
+Statistical sample can be skewed (left or right) or symmetric.
+As indicated in Figure~\ref{fig:skewness}, left skewed sample has a tail on the left side which means that its mean and median is smaller than sample's mode (most common value).
+Inveresely for right skewe samples: the tail appears on the right sie and sample's mean and median are greater than sample's mode.
+
+\begin{figure}[h!]
+  \centering
+  \captionsetup{width=26pc, justification=centering}
+    \includegraphics[width=0.9\textwidth]{images/skewness.png}
+  \caption{Examples of samples' skewness showing from the left: negatively skewed sample (skewed left), symmetric sample and positively skewed sample (skewed right).}
+  \label{fig:skewness}
+\end{figure}
+
 \subsection{Problem definition}
 The problem is to define whether there exists relation between parameter $k$ of kNN graph, that is its out-degree (number of outbound connections of each node in the graph) and assortativity coefficient in high dimensional datasets.
 The conclusions from possible solutions to this problem may reveal whether nodes from real world datasets tend to connect to similar nodes or not.
 Whether real world nodes tend to form groups of nodes with similar characteristic or rathere they tend to connect with different nodes.
+
+\subsection{Related work}
+Similar researches have been done in the past.
+Particularly interesting is research of M.E.J. Newman\cite{newman_mixing_patterns_in_networks} regarding assortative mixing in networks.
+In his work he emphasizes on assortativity in social networks, in creating friends networks or in sexual partners mixing by race.
+A lot of his work is based on discrete assortative networks where nodes can be described with discrete or enumerative parameters, whereas in this paper the emphasis is put on real valued networks.
+This paper is also analyzing influence of parameter $k$ of kNN graphs on network's assortativity.
