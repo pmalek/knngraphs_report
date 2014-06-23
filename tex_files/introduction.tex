@@ -1,6 +1,7 @@
 \subsection{Background}
 \subsubsection{K Nearest Neighbor graphs}
-K nearest neighbor graph for a set of $n$ objects $P$ in a metric space (e.g., for a set of points in the plane with Euclidean distance) is a directed graph with $P$ being its vertex set and with a directed edge from $p$ to $q$ whenever $q$ is a nearest neighbor of $p$ (i.e., the distance from $p$ to $q$ is no larger than from $q$ to any other object from $P$).
+K nearest neighbor graph for a set of $n$ objects $P$ in a metric space (e.g., for a set of points in the plane with Euclidean distance) is a directed graph with $P$ being its vertex set and with directed edges from $p$ to all nodes $q \in P$ in a set of $k$ nearest neighbors set of $p$ (i.e., the distance from $p$ to $q$ is no larger than $k$th smallest distance from $q$ to any other object from $P$).
+
 They can show a measure of the correlation between the degree of a node and that of its neighbors.
 In many systems strong correlations are observed, and one distinguishes networks into assortative and disassortative.
 A network is assortative if large (small) degree nodes tend to be linked with large (small) degree nodes.
@@ -17,11 +18,13 @@ Pearson correlation coefficient, $\rho$, represented with the following formula 
 
 $$ \rho_{X,Y} = \frac{cov(X,Y)}{\sigma_x \sigma_y}$$
 
-Where $\sigma$ is a standard deviation of population and $cov$ is its covariance.
+Where $\sigma_X$ and $\sigma_Y$ are standard deviations of populations $X$ and $Y$ respectively and $cov(X,Y)$ is covariance between $X$ and $Y$.
 It can be also represented as $r$, using the following formula for samples of size $n$:
 
 $$r = \frac{\sum_{i=1}^{n} (X_i - \bar{X}) (Y_i - \bar{Y}) }
 { \sqrt{\sum_{i=1}^{n} (X_i - \bar{X})^2} \sqrt{\sum_{i=1}^{n} (X_i - \bar{X})^2} }$$
+
+Where $\bar{X}$ and $\bar{Y}$ are mean values of samples from populations $X$ and $Y$.
 
 Pearson correlation coefficient can take a range of values from +1 (inclusive) to -1 (inclusive).
 A value of 0 indicates that there is no association between the two variables.
@@ -51,6 +54,13 @@ It simply means that there is no variation between the data points and the line 
   \label{fig:pearson_graph_slope}
 \end{figure}
 
-\subsection{Problem definition}
-The problem is to define whether there exists relation between parameter $k$ of kNN graph, that is its out-degree (number of outbound connections of each node in the graph) and Pearson correlation coefficient in high dimensional datasets.
+\subsubsection{Assortativity coefficient}
+Assortativity coefficient is the Pearson correlation coefficient of degrees between connected nodes in k-NN graph.
+With positive assortative coefficient $(0, 1>$, nodes tend to connect to other nodes that are similar.
+With negative assortative coefficient $<-1, 0$, nodes tend to connect to nodes that are different (have different degrees).
+Values close to $0$ indicate no tendency of nodes to connect to any other particular nodes (random connections).
 
+\subsection{Problem definition}
+The problem is to define whether there exists relation between parameter $k$ of kNN graph, that is its out-degree (number of outbound connections of each node in the graph) and assortativity coefficient in high dimensional datasets.
+The conclusions from possible solutions to this problem may reveal whether nodes from real world datasets tend to connect to similar nodes or not.
+Whether real world nodes tend to form groups of nodes with similar characteristic or rathere they tend to connect with different nodes.

@@ -87,3 +87,5 @@ sympy-plots-for-*.tex/
 
 # xindy
 *.xdy
+new_images
+old_images

@@ -11,7 +11,8 @@ While using the implemented solution with aforementioned datasets, parameter $k 
 %------------------------------------------
 \subsection{Cardiac arrythmia dataset}
 \label{subsec:cardiac}
-In cardiac arrythmia dataset one can observe assortativity coefficient stabilizing at around $0.31$ indicating assortative mixing.
+In Figure~\ref{fig:graph_arrythmia_pearson} one can see cardiac arrythmia dataset visualization produced by implemented solution software.
+Assortativity coefficient is stabilizing at around $0.31$ indicating assortative mixing.
 Between $k$ 1 and 2 we can observe change in assortativity from disassortative to assortative.
 
 Skewness of in-degrees is oscilating around level of $1.4 - 1.5$.
@@ -20,7 +21,7 @@ Its level indicates hubs phenomena present in this dataset.
 \begin{figure}[h!]
   \centering
   \captionsetup{justification=centering}
-    \includegraphics[width=0.95\textwidth]{images/arrythmia_pearson.pdf}
+    \includegraphics[width=0.95\textwidth]{images/arrythmia_pearson.png}
   \caption{Graph of Pearson correlation coefficient, its coefficient of variation and skewness of in-degree of nodes against $K$ parameter for cardiac arrythmia dataset.}
   \label{fig:graph_arrythmia_pearson}
 \end{figure}
@@ -28,7 +29,7 @@ Its level indicates hubs phenomena present in this dataset.
 
 %------------------------------------------
 \subsection{Handwritten numerals dataset}
-Handwritten numerals dataset exhibits lower level of stable assortativity index level, at around $0.27$.
+Handwritten numerals dataset, presented with visualization in Figure~\ref{fig:graph_mfeat_pearson}, exhibits lower level of stable assortativity index level, at around $0.27$.
 In this dataset we can see smaller gap between Pearson correlation coefficient and both skewness and coefficient of variation.
 
 Similarily to cardiac arrythmia dataset in Section~\ref{subsec:cardiac} we can observe a change of assortativity between $k$ 1 and 2 from disassortative to assortative.
@@ -38,7 +39,7 @@ Positive skewness of in-degrees proves presence of hubs in kNN graph to be built
 \begin{figure}[h!]
   \centering
   \captionsetup{justification=centering}
-    \includegraphics[width=0.95\textwidth]{images/mfeat_pearson.pdf}
+    \includegraphics[width=0.95\textwidth]{images/mfeat_pearson.png}
   \caption{Graph of Pearson correlation coefficient, its coefficient of variation and skewness of in-degree of nodes against $K$ parameter for handwritten numerals dataset.}
   \label{fig:graph_mfeat_pearson}
 \end{figure}
@@ -48,14 +49,14 @@ Positive skewness of in-degrees proves presence of hubs in kNN graph to be built
 %------------------------------------------
 \subsection{Steel plate faults dataset}
 Steel plate faults dataset exhibits quite different parameters than 2 previous ones.
-Its assortativity index stabilizes at around $0.31$ as in previous examples yet covariance of variation of nodes in-degrees descends below level of $0.3$ overlapping with assortativity index.
+As one observe in Figure~\ref{fig:graph_faults_pearson}, its Pearson correlation coefficient of degrees between connected nodes stabilizes at around $0.31$ as in previous examples yet covariance of variation of nodes in-degrees descends below level of $0.3$ overlapping with assortativity index.
 
 Skewness of nodes' in-degrees descends to negative values up until $-1.2$ for $k = 30$ indicating abence of hubness phenomena.
 
 \begin{figure}[h!]
   \centering
   \captionsetup{justification=centering}
-    \includegraphics[width=0.95\textwidth]{images/faults_pearson.pdf}
+    \includegraphics[width=0.95\textwidth]{images/faults_pearson.png}
   \caption{Graph of Pearson correlation coefficient, its coefficient of variation and skewness of in-degree of nodes against $K$ parameter for steel plates faults dataset.}
   \label{fig:graph_faults_pearson}
 \end{figure}
@@ -81,3 +82,8 @@ General conclusion taken from aforementioned 3 datasets are as follows:
 \item assortativity for large $k$s occurs regardless of hubness phenomena ( e.g. both cardiac arrythmia dataset steel plates faults dataset positively assortative with and without hubs respectively) 
 \end{itemize}
 
+
+%------------------------------------------
+\subsection{Analysis of results and follow-up work}
+The main drawback of used method and solutions is that it has been performed on a very limited amount of datasets therefore it can be expanded in future work to minimize any deviations and/or noise in the datasets.
+The follow-up work can also extend to investigate the hubness of networks in more detail.
